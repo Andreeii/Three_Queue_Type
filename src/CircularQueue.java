@@ -9,7 +9,7 @@ public class CircularQueue implements CharQ {
     }
 
     public void put(char ch ){
-        if(putloc+1 == q.length || ( (putloc == q.length-1) & (getloc == 0) ) ){
+        if(putloc+1 == getloc || ( (putloc == q.length-1) & (getloc == 0) ) ){
             System.out.println("Queue is full");
             return;
         }
