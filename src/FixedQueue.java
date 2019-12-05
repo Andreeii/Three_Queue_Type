@@ -8,17 +8,16 @@ public class FixedQueue implements CharQ {
         putloc = getloc = 0 ;
     }
 
-    public void put(char ch ){
-        if(putloc == q.length){
-            System.out.println("Queue is full");
-            return;
+    public void put(char ch ) throws  QueueFullException {
+            if (putloc == q.length) {
+                throw new QueueFullException(q.length);
+            }
+            q[putloc++] = ch;
         }
-        q[putloc++] = ch;
-    }
-    public char get (){
+
+    public char get () throws QueueEmptyException{
         if(getloc == putloc){
-            System.out.println("Queue is empty");
-            return (char) 0;
+            throw new QueueEmptyException();
         }
         return q[getloc++];
     }

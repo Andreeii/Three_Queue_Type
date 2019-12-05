@@ -9,54 +9,70 @@ public class Demo {
         int i ;
 
         iq = q1;
+try {
+    for (i = 0; i < 11; i++) {
+        System.out.print("Attempting to store :"+ (char)('A'+i));
+        iq.put((char) ('A' + i));
+        System.out.println("- OK");
+    }
+    System.out.println();
+}catch (QueueFullException e){
+    System.out.println(e);
+}
 
-        for ( i = 0 ; i < 10;i++){
-            iq.put((char)('A'+i));
-        }
-        System.out.print("Content of fixedQueue:");
-        for (i = 0 ; i<10;i++){
-            ch = iq.get();
-            System.out.print(ch + " ");
-        }
-        System.out.println();
-
-        iq = q2;
-        for ( i = 0 ; i < 5;i++){
-            iq.put((char)('A'+i));
-        }
-        System.out.print("Content of dynamicQueue:");
-        for (i = 0 ; i<5;i++){
-            ch = iq.get();
-            System.out.print(ch + " ");
-        }
-        System.out.println();
-
-
-        iq = q3;
-        for ( i = 0 ; i < 10;i++){
-            iq.put((char)('Z'-i));
-        }
-        System.out.print("Content of circularQueue:");
-        for (i = 0 ; i<10;i++){
-            ch = iq.get();
-            System.out.print(ch + " ");
-        }
-        System.out.println();
-//        put mote characters in circular queue
-        for ( i = 10 ; i < 20;i++){
-            iq.put((char)('A'+i));
-        }
-        System.out.print("Content of circualr queue");
-        for ( i = 0 ; i < 10;i++){
-            ch = iq.get();
-            System.out.print(ch + " ");
-        }
-
-        System.out.println("\nStore and consume from circular queue");
-        for(i = 0 ; i <20; i ++){
-            iq.put((char )('A'+i));
-            ch = iq.get();
-            System.out.print(ch);
-        }
+try{
+    for (i = 0 ; i < 11;i++){
+        System.out.print("Getting next char:");
+        ch = iq.get();
+        System.out.println(ch);
+    }
+}catch (QueueEmptyException e){
+    System.out.println(e);
+}
+//        System.out.print("Content of fixedQueue:");
+//        for (i = 0 ; i<10;i++){
+//            ch = iq.get();
+//            System.out.print(ch + " ");
+//        }
+//        System.out.println();
+//
+//        iq = q2;
+//        for ( i = 0 ; i < 5;i++){
+//            iq.put((char)('A'+i));
+//        }
+//        System.out.print("Content of dynamicQueue:");
+//        for (i = 0 ; i<5;i++){
+//            ch = iq.get();
+//            System.out.print(ch + " ");
+//        }
+//        System.out.println();
+//
+//
+//        iq = q3;
+//        for ( i = 0 ; i < 10;i++){
+//            iq.put((char)('Z'-i));
+//        }
+//        System.out.print("Content of circularQueue:");
+//        for (i = 0 ; i<10;i++){
+//            ch = iq.get();
+//            System.out.print(ch + " ");
+//        }
+//        System.out.println();
+////        put mote characters in circular queue
+//        for ( i = 10 ; i < 20;i++){
+//            iq.put((char)('A'+i));
+//        }
+//        System.out.print("Content of circualr queue");
+//        for ( i = 0 ; i < 10;i++){
+//            ch = iq.get();
+//            System.out.print(ch + " ");
+//        }
+//
+//        System.out.println("\nStore and consume from circular queue");
+//        for(i = 0 ; i <20; i ++){
+//            iq.put((char )('A'+i));
+//            ch = iq.get();
+//            System.out.print(ch);
+//        }
     }
 }
